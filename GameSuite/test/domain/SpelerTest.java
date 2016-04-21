@@ -9,8 +9,8 @@ public class SpelerTest {
 	
 	private String naam;
 	private String anderenaam;
-	//TODO Remove? private int scoreToAdd;
-	//TODO Remove? private int wrongScoreToAdd;
+	private int scoreToAdd;
+	private int wrongScoreToAdd;
 	private Speler speler;
 
 	@Before
@@ -26,7 +26,7 @@ public class SpelerTest {
 	public void test_Speler_wordt_aangemaakt_met_gegeven_naam() {
 		speler = new Speler(naam);
 		assertEquals(naam, speler.getNaam());
-		//TODO Remove? assertEquals(0, speler.getScore());
+		assertEquals(0, speler.getScore());
 	}
 	
 	@Test (expected = DomainException.class)
@@ -57,7 +57,6 @@ public class SpelerTest {
 		assertFalse(speler.equals(andereSpeler));
 	}
 	
-	/*TODO Remove? 
 	@Test
 	public void test_equals_geeft_true_als_naam_en_score_gelijk_zijn(){
 		speler.addToScore(scoreToAdd);
@@ -92,5 +91,4 @@ public class SpelerTest {
 	public void test_addToScore_Gooit_exception_als_resulterende_score_negatief(){
 		speler.addToScore(wrongScoreToAdd);
 	}
-	*/
 }
