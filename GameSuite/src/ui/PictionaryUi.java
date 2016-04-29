@@ -1,6 +1,7 @@
 package ui;
 
 import domain.Punt;
+import domain.Speler;
 
 import javax.swing.*;
 
