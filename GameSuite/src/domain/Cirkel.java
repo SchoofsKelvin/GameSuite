@@ -5,7 +5,7 @@ public class Cirkel {
 	private Punt middelpunt;
 	private int radius;
 	
-	public Cirkel(Punt middelPunt,int radius){
+	public Cirkel(Punt middelpunt,int radius){
 		setMiddelpunt(middelpunt);
 		setRadius(radius);
 	}
@@ -35,8 +35,8 @@ public class Cirkel {
 	@Override
 	public boolean equals(Object obj) {
 		return obj != null && obj.getClass().equals(getClass())
-				&& ((Cirkel) obj).getMiddelpunt().equals(middelpunt)
-				&& ((Cirkel) obj).getRadius() == this.getRadius;
+				&& ((Cirkel) obj).getMiddelpunt().equals(getMiddelpunt())
+				&& ((Cirkel) obj).getRadius() == getRadius();
 	}
 	@Override
 	public String toString() {
