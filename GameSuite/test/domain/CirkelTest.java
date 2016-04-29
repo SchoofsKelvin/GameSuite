@@ -30,7 +30,7 @@ public class CirkelTest {
 	}
 
 	@Test
-	public void Cirkels_zijn_gelijk_als_ze_alle_instantie_variabelen_gelijk_hebben
+	public void Cirkels_zijn_gelijk_als_ze_alle_instantie_variabelen_gelijk_hebben()
 
 	{
 		Cirkel cirkelA = new Cirkel(middelPunt, radius);
@@ -44,14 +44,12 @@ public class CirkelTest {
 	}
 	@Test
 	public void Cirkels_zijn_verschillend_met_verschillend_middelpunt(){
-	{
 		Cirkel cirkelA = new Cirkel(middelPunt, radius);
 		Cirkel cirkelB = new Cirkel(new Punt(100,100), radius);
 		assertFalse(cirkelA.equals(cirkelB));
 	}
 	@Test
 	public void Cirkels_zijn_verschillend_met_verschillende_straal(){
-	{
 		Cirkel cirkelA = new Cirkel(middelPunt, radius);
 		Cirkel cirkelB = new Cirkel(middelPunt, radius+1);
 		assertFalse(cirkelA.equals(cirkelB));
