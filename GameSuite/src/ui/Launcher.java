@@ -6,6 +6,8 @@ import domain.Speler;
 
 public class Launcher {
 
+	//Dit is een test - Levi
+
 	public static void main(String[] args) {
 		String naam = JOptionPane.showInputDialog("Welkom! \nHoe heet je?");
 		Speler speler = new Speler(naam);
