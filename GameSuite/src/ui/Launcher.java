@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 import domain.Speler;
 
 public class Launcher {
-
+//test surendra
 	public static void main(String[] args) {
 		String naam = JOptionPane.showInputDialog("Welkom! \nHoe heet je?");
 		Speler speler = new Speler(naam);
