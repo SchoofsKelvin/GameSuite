@@ -53,6 +53,7 @@ public class CirkelTest {
 		Cirkel cirkelA = new Cirkel(middelPunt, radius);
 		Cirkel cirkelB = new Cirkel(middelPunt, radius+1);
 		assertFalse(cirkelA.equals(cirkelB));
+		
 	}
 	
 	
