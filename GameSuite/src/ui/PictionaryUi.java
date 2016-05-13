@@ -1,13 +1,15 @@
 package ui;
 
-import java.awt.JobAttributes;
+
 
 import javax.swing.JOptionPane;
 
-import domain.DomainException;
+import domain.Cirkel;
 import domain.LijnStuk;
 import domain.Punt;
+import domain.Rechthoek;
 import domain.Speler;
+import domain.Vorm;
 
 public class PictionaryUi {
 
@@ -52,15 +54,8 @@ public class PictionaryUi {
 		while (true) {
 			try {
 				String input = JOptionPane.showInputDialog(message);
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 				if (input == null) throw new CancelledException();
-=======
-				if (input == null)
-					throw new CancelledException();
-=======
-				if (input == null) throw new CancelledException();
->>>>>>> branch 'master' of https://github.com/SchoofsKelvin/GameSuite.git
 				return Integer.parseInt(input);
 			} catch (NumberFormatException e) {
 				toonError("Invalid number!");
