@@ -3,6 +3,7 @@ package ui;
 import javax.swing.JOptionPane;
 
 import domain.DomainException;
+import domain.LijnStuk;
 import domain.Punt;
 import domain.Speler;
 
@@ -54,6 +55,12 @@ public class PictionaryUi {
 			}
 		}
 	}
+	private void maakLijnStuk(){
+		Punt startPunt = new Punt(Integer.parseInt(JOptionPane.showInputDialog(null, "Geef de x waarde voor de startpunt:")), Integer.parseInt(JOptionPane.showInputDialog(null,"Geef de Y waarde van de startPunt:")));
+		Punt eindPunt = new Punt(Integer.parseInt(JOptionPane.showInputDialog(null, "Geef de x waarde voor de startpunt:")), Integer.parseInt(JOptionPane.showInputDialog(null,"Geef de Y waarde van de startPunt:")));
+		LijnStuk l = new LijnStuk(startPunt, eindPunt);
+	}
+	
 	
 
 }
