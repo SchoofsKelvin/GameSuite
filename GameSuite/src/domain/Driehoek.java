@@ -45,8 +45,6 @@ public class Driehoek {
 	
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		
-		return super.toString();
+		return "Driehoek: " + hoekpunt1 + " - " + hoekpunt2 + " - " + hoekpunt3;
 	}
 }
