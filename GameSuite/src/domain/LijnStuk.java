@@ -5,6 +5,7 @@ public class LijnStuk {
 	private Punt startPunt;
 	private Punt eindPunt;
 	
+	
 	public LijnStuk(Punt startPunt, Punt eindPunt){
 		setEindPunt(eindPunt);
 		setStartPunt(startPunt);
