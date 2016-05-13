@@ -29,12 +29,20 @@ public class Driehoek {
 	@Override
 	public boolean equals(Object obj) {
 		// TODO Auto-generated method stub
-		return super.equals(obj);
+		if (this == obj) return true;
+		if (obj == null || getClass() != obj.getClass()) return false;
+
+		Driehoek driehoek  = (Driehoek) obj;
+
+		return hoekpunt1 == driehoek.getHoekPunt1()
+			&& hoekpunt2 == driehoek.getHoekPunt2()
+			&& hoekpunt3 == driehoek.getHoekPunt3();
 	}
 	
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
+		
 		return super.toString();
 	}
 }
