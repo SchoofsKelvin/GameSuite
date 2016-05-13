@@ -1,10 +1,9 @@
 package domain;
 
-public class LijnStuk {
+public class LijnStuk extends Vorm {
 	
 	private Punt startPunt;
 	private Punt eindPunt;
-	
 	
 	public LijnStuk(Punt startPunt, Punt eindPunt){
 		setEindPunt(eindPunt);
@@ -42,6 +41,11 @@ public class LijnStuk {
 			}
 		}
 		return false;
+	}
+	
+	@Override
+	public String toString() {
+		return "Punt X:"+this.getStartPunt().toString()+"Punt Y:"+this.getEindPunt().toString();
 	}
 	
 	

@@ -44,4 +44,5 @@ public class LijnStukTest {
 		LijnStuk lijnStuk = new LijnStuk(punt1, punt2);
 		assertFalse(lijnStuk.equals(null));
 	}
+
 }

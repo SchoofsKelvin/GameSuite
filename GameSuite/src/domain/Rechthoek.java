@@ -3,7 +3,7 @@ package domain;
 /**
  * Created by leviv on 5/13/2016.
  */
-public class Rechthoek {
+public class Rechthoek extends Vorm {
 
     private Punt linkerBovenhoek; //Linker boven-hoek
     private int breedte;
