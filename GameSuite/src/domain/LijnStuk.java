@@ -35,15 +35,6 @@ public class LijnStuk {
 	
 	@Override
 	public boolean equals(Object object){
-		/*if (object == null){
-			return false;
-		
-		} 
-		if (object instanceof LijnStuk){
-			LijnStuk l = (LijnStuk) object;
-			return this.getStartPunt().equals(l.getStartPunt())&&this.getEindPunt().equals(l.getEindPunt());
-		}
-		return false;*/
 		if(object!=null){
 			if(object instanceof LijnStuk){
 				LijnStuk l = (LijnStuk)object;
