@@ -17,27 +17,56 @@ public class PictionaryUi {
 		this.speler = speler;
 	}
 
-	public void showMenu() throws CancelledException {
+	public Vorm getVormByDialog() {
+
+		Object[] shapes = {"Cirkel", "Rechthoek"};
+		String vormKeuze = (String) JOptionPane.showInputDialog(null, "Wat wilt u tekenen", "input", JOptionPane.INFORMATION_MESSAGE, null, shapes, null);
+
+		Vorm vorm = null;
+		Punt punt = getPuntByDialog();
+
+		switch (vormKeuze) {
+			case "Rechthoek":
+				int breedte = getIntegerUsingDialog("Breedte");
+				int hoogte = getIntegerUsingDialog("Hoogte");
+				vorm = new Rechthoek(punt, breedte, hoogte);
+				break;
+			case "Cirkel":
+				int radius = getIntegerUsingDialog("Radius");
+				vorm = new Cirkel(punt, radius);
+				break;
+		}
+		return vorm;
+
+	}
+
+	public Punt getPuntByDialog() {
 		int x = getIntegerUsingDialog("x coordinaat van het punt:");
 		int y = getIntegerUsingDialog("y coordinaat van het punt:");
 		Punt punt = new Punt(x, y);
 		JOptionPane.showMessageDialog(null, "U heeft een correct punt aangemaakt: " + punt.toString());
+		return punt;
 	}
 
-	private int getIntegerUsingDialog(String message) throws CancelledException {
+	private int getIntegerUsingDialog(String message) {
 		while (true) {
 			try {
 				String input = JOptionPane.showInputDialog(message);
+<<<<<<< HEAD
 <<<<<<< HEAD
 				if (input == null) throw new CancelledException();
 =======
 				if (input == null)
 					throw new CancelledException();
+=======
+				if (input == null) throw new CancelledException();
+>>>>>>> branch 'master' of https://github.com/SchoofsKelvin/GameSuite.git
 				return Integer.parseInt(input);
 			} catch (NumberFormatException e) {
 				toonError("Invalid number!");
 			} catch (Exception e) {
-				toonError("There was a problem!\n" + e.getClass() + ": " + e.getMessage());
+				toonError("There was a problem!\n" + e.getClass() + ": "
+						+ e.getMessage());
 			}
 		}
 	}
@@ -46,20 +75,7 @@ public class PictionaryUi {
 		JOptionPane.showMessageDialog(null, message, "Error", JOptionPane.ERROR_MESSAGE);
 	}
 
-	private int vraagStraal() throws CancelledException {
-		while (true) {
-			String straal = JOptionPane.showInputDialog("Straal?");
-			if (straal == null)
-				throw new CancelledException();
-			try {
-				return Integer.parseUnsignedInt(straal);
-			} catch (NumberFormatException e) {
-				toonError("Geen geldig positief getal");
-			}
-		}
-	}
-
-	private void maakLijnStuk() {
+	private LijnStuk maakLijnStuk() {
 		Punt startPunt = null;
 		Punt eindPunt = null;
 		try {
@@ -71,9 +87,9 @@ public class PictionaryUi {
 					Integer.parseInt(JOptionPane.showInputDialog(null, "Geef de Y waarde van de startPunt:")));
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "Er is iets fout gelopen Opnieuw proberen");
-		} finally {
-			LijnStuk l = new LijnStuk(startPunt, eindPunt);
 		}
+		LijnStuk l = new LijnStuk(startPunt, eindPunt);
+		return l;
 	}
 
 }
