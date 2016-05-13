@@ -5,7 +5,6 @@ public class LijnStuk {
 	private Punt startPunt;
 	private Punt eindPunt;
 	
-	
 	public LijnStuk(Punt startPunt, Punt eindPunt){
 		setEindPunt(eindPunt);
 		setStartPunt(startPunt);
@@ -51,6 +50,12 @@ public class LijnStuk {
 			}
 		}
 		return false;
+	}
+	@Override
+	public String toString() {
+		//		String expect = "Punt x: 10,20 Punt Y: 190,30";
+
+		return "Punt x: "+this.getStartPunt().getX()+","+this.getStartPunt().getY()+" Punt Y: "+this.getEindPunt().getX()+","+this.getEindPunt().getY();
 	}
 	
 	
