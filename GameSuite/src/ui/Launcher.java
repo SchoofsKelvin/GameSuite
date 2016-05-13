@@ -11,7 +11,9 @@ public class Launcher {
 		Speler speler = new Speler(naam);
 		PictionaryUi ui = new PictionaryUi(speler);
 
-		ui.getVormByDialog(); //Demo
+		Vorm vorm = ui.getVormByDialog();
+		JOptionPane.showMessageDialog(null, vorm.toString());
+		//TODO: try/catch
 
 		JOptionPane.showMessageDialog(null,
 				"... heeft als score " + speler.getScore());
