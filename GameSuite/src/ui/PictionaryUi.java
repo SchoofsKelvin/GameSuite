@@ -2,8 +2,7 @@ package ui;
 
 import javax.swing.JOptionPane;
 
-import domain.Punt;
-import domain.Speler;
+import domain.*;
 
 public class PictionaryUi {
 
@@ -13,16 +12,39 @@ public class PictionaryUi {
 		this.speler = speler;
 	}
 
-	public void showMenu() throws CancelledException {
+	public Vorm getVormByDialog() {
+
+		Object[] shapes = {"Cirkel", "Rechthoek"};
+		String vormKeuze = (String) JOptionPane.showInputDialog(null, "Wat wilt u tekenen", "input", JOptionPane.INFORMATION_MESSAGE, null, shapes, null);
+
+		Vorm vorm = null;
+		Punt punt = getPuntByDialog();
+
+		switch (vormKeuze) {
+			case "Rechthoek":
+				int breedte = getIntegerUsingDialog("Breedte");
+				int hoogte = getIntegerUsingDialog("Hoogte");
+				vorm = new Rechthoek(punt, breedte, hoogte);
+				break;
+			case "Cirkel":
+				int radius = getIntegerUsingDialog("Radius");
+				vorm = new Cirkel(punt, radius);
+				break;
+		}
+		return vorm;
+
+	}
+
+	public Punt getPuntByDialog() {
 		int x = getIntegerUsingDialog("x coordinaat van het punt:");
 		int y = getIntegerUsingDialog("y coordinaat van het punt:");
 		Punt punt = new Punt(x, y);
 		JOptionPane.showMessageDialog(null,
 				"U heeft een correct punt aangemaakt: " + punt.toString());
+		return punt;
 	}
 
-	private int getIntegerUsingDialog(String message)
-			throws CancelledException {
+	private int getIntegerUsingDialog(String message) {
 		while (true) {
 			try {
 				String input = JOptionPane.showInputDialog(message);
@@ -40,18 +62,6 @@ public class PictionaryUi {
 	private void toonError(String message) {
 		JOptionPane.showMessageDialog(null, message, "Error",
 				JOptionPane.ERROR_MESSAGE);
-	}
-
-	private int vraagStraal() throws CancelledException {
-		while (true) {
-			String straal = JOptionPane.showInputDialog("Straal?");
-			if (straal == null) throw new CancelledException();
-			try {
-				return Integer.parseUnsignedInt(straal);
-			} catch (NumberFormatException e) {
-				toonError("Geen geldig positief getal");
-			}
-		}
 	}
 
 }
