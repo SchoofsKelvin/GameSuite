@@ -2,6 +2,7 @@ package ui;
 
 import javax.swing.JOptionPane;
 
+import domain.DomainException;
 import domain.Punt;
 import domain.Speler;
 
@@ -53,5 +54,6 @@ public class PictionaryUi {
 			}
 		}
 	}
+	
 
 }
