@@ -56,7 +56,7 @@ public class PictionaryUi {
 		}
 	}
 
-	private void maakLijnStuk() {
+	private LijnStuk maakLijnStuk() {
 		Punt startPunt = null;
 		Punt eindPunt = null;
 		try {
@@ -68,9 +68,9 @@ public class PictionaryUi {
 					Integer.parseInt(JOptionPane.showInputDialog(null, "Geef de Y waarde van de startPunt:")));
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "Er is iets fout gelopen Opnieuw proberen");
-		} finally {
-			LijnStuk l = new LijnStuk(startPunt, eindPunt);
 		}
+		LijnStuk l = new LijnStuk(startPunt, eindPunt);
+		return l;
 	}
 
 }
