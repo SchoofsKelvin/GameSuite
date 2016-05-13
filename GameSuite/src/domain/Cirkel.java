@@ -42,4 +42,12 @@ public class Cirkel extends Vorm {
 	public String toString() {
 		return "Cirkel: " + middelpunt + " - straal: " + 20;
 	}
+
+	@Override
+	public Omhullende getOmhullende() {
+		int x = middelpunt.getX(), y = middelpunt.getY();
+		Punt punt1 = new Punt(x-radius, y-radius);
+		Punt punt2 = new Punt(x+radius, y+radius);
+		return new Omhullende(punt1, punt2);
+	}
 }

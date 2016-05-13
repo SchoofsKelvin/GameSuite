@@ -47,6 +47,11 @@ public class LijnStuk extends Vorm {
 	public String toString() {
 		return "Punt X:"+this.getStartPunt().toString()+"Punt Y:"+this.getEindPunt().toString();
 	}
+
+	@Override
+	public Omhullende getOmhullende() {
+		return new Omhullende(startPunt, eindPunt);
+	}
 	
 	
 	

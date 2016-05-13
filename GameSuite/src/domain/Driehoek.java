@@ -47,4 +47,9 @@ public class Driehoek extends Vorm {
 	public String toString() {
 		return "Driehoek: " + hoekpunt1 + " - " + hoekpunt2 + " - " + hoekpunt3;
 	}
+
+	@Override
+	public Omhullende getOmhullende() {
+		return Omhullende.vanPunten(hoekpunt1,hoekpunt2,hoekpunt3);
+	}
 }
