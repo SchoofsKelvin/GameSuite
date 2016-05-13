@@ -19,6 +19,25 @@ public class PictionaryUi {
 		this.speler = speler;
 	}
 
+	public void start() {
+
+		Vorm vorm = null;
+		try {
+			boolean vormMade = false;
+			while(!vormMade) {
+				vorm = getVormByDialog();
+				JOptionPane.showMessageDialog(null, vorm.toString());
+				vormMade = true;
+			}
+		} catch (Exception e) {
+			toonError(e.getClass() + ": " + e.getMessage());
+		}
+
+		JOptionPane.showMessageDialog(null,
+				"... heeft als score " + speler.getScore());
+
+	}
+
 	public Vorm getVormByDialog() {
 
 		Object[] shapes = {"Cirkel", "Rechthoek"};
