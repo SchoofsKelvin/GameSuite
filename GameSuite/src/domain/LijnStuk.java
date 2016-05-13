@@ -43,6 +43,10 @@ public class LijnStuk {
 		}
 		return false;
 	}
+	@Override
+	public String toString() {
+		return "Punt X:"+this.getStartPunt().toString()+"Punt Y:"+this.getEindPunt().toString();
+	}
 	
 	
 	

@@ -44,4 +44,10 @@ public class LijnStukTest {
 		LijnStuk lijnStuk = new LijnStuk(punt1, punt2);
 		assertFalse(lijnStuk.equals(null));
 	}
+	@Test
+	public void toString_moet_op_juist_formaat_returnen(){
+		LijnStuk l = new LijnStuk(punt1, punt2);
+		String  lijn = "10,20,190,30";
+		assertEquals(lijn, l);
+	}
 }
