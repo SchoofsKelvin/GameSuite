@@ -27,7 +27,7 @@ public class PictionaryUi {
 			try {
 				String input = JOptionPane.showInputDialog(message);
 				if (input == null) throw new CancelledException();
-				return Integer.parseUnsignedInt(input);
+				return Integer.parseInt(input);
 			} catch (NumberFormatException e) {
 				toonError("Invalid number!");
 			} catch (Exception e) {
