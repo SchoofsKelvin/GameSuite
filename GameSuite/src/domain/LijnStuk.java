@@ -34,15 +34,6 @@ public class LijnStuk {
 	
 	@Override
 	public boolean equals(Object object){
-		/*if (object == null){
-			return false;
-		
-		} 
-		if (object instanceof LijnStuk){
-			LijnStuk l = (LijnStuk) object;
-			return this.getStartPunt().equals(l.getStartPunt())&&this.getEindPunt().equals(l.getEindPunt());
-		}
-		return false;*/
 		if(object!=null){
 			if(object instanceof LijnStuk){
 				LijnStuk l = (LijnStuk)object;
@@ -51,11 +42,10 @@ public class LijnStuk {
 		}
 		return false;
 	}
+	
 	@Override
 	public String toString() {
-		//		String expect = "Punt x: 10,20 Punt Y: 190,30";
-
-		return "Punt x: "+this.getStartPunt().getX()+","+this.getStartPunt().getY()+" Punt Y: "+this.getEindPunt().getX()+","+this.getEindPunt().getY();
+		return "Punt X:"+this.getStartPunt().toString()+"Punt Y:"+this.getEindPunt().toString();
 	}
 	
 	

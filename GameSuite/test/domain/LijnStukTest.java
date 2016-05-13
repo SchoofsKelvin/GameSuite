@@ -44,13 +44,11 @@ public class LijnStukTest {
 		LijnStuk lijnStuk = new LijnStuk(punt1, punt2);
 		assertFalse(lijnStuk.equals(null));
 	}
+
 	@Test
-	public void toString_moet_juiste_String_teruggeven(){
-		//private Punt	punt1			= new Punt(10, 20);
-		//private Punt	zelfdeAlsPunt1	= new Punt(10, 20);
-		//private Punt	punt2			= new Punt(190, 30);
-		String expect = "Punt x: 10,20 Punt Y: 190,30";
+	public void toString_moet_op_juist_formaat_returnen(){
 		LijnStuk l = new LijnStuk(punt1, punt2);
-		assertEquals(expect, l);
+		String  lijn = "10,20,190,30";
+		assertEquals(lijn, l);
 	}
 }
