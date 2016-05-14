@@ -42,7 +42,7 @@ public class PictionaryUi {
 				JOptionPane.INFORMATION_MESSAGE, null, shapes, null);
 
 		Vorm vorm = null;
-		Punt punt = getPuntByDialog();
+		Punt punt = getPuntByDialog("linkerbovenpunt");
 
 		switch (vormKeuze) {
 		case "Rechthoek":
@@ -59,11 +59,11 @@ public class PictionaryUi {
 
 	}
 
-	public Punt getPuntByDialog() {
-		int x = getIntegerUsingDialog("x coordinaat van het punt:");
-		int y = getIntegerUsingDialog("y coordinaat van het punt:");
+	public Punt getPuntByDialog(String puntNaam) {
+		int x = getIntegerUsingDialog("x coordinaat van het " + puntNaam + ":");
+		int y = getIntegerUsingDialog("y coordinaat van het " + puntNaam + ":");
 		Punt punt = new Punt(x, y);
-		JOptionPane.showMessageDialog(null, "U heeft een correct punt aangemaakt: " + punt.toString());
+		JOptionPane.showMessageDialog(null, "U heeft een " + puntNaam + " aangemaakt: " + punt.toString());
 		return punt;
 	}
 
@@ -88,31 +88,8 @@ public class PictionaryUi {
 	}
 
 	public void maakLijnStuk() {
-		Punt startPunt = null;
-		Punt eindPunt = null;
-		JOptionPane.showMessageDialog(null, "Klik OK om een lijnStuk te maken");
-		try {
-			startPunt = new Punt(
-					Integer.parseInt(JOptionPane.showInputDialog(null, "Geef de x waarde voor de startpunt:")),
-					Integer.parseInt(JOptionPane.showInputDialog(null, "Geef de Y waarde van de startPunt:")));
-		} catch (NumberFormatException e) {
-			toonError("Invalid number");
-		} catch (Exception e) {
-			toonError("There was a problem \n" + e.getClass() + ": " + e.getMessage());
-		}
-		JOptionPane.showMessageDialog(null,
-				"U hebt een StartPunt gemaakt met volgende coordinaten:" + startPunt.getX() + " en " + startPunt.getY());
-		try {
-			eindPunt = new Punt(
-					Integer.parseInt(JOptionPane.showInputDialog(null, "Geef de x waarde voor de EindPunt:")),
-					Integer.parseInt(JOptionPane.showInputDialog(null, "Geef de Y waarde van de EindPunt:")));
-		} catch (NumberFormatException e) {
-			toonError("invalid Number");
-		} catch (Exception e) {
-			toonError("There was a problem \n" + e.getClass() + ": " + e.getMessage());
-		}
-		JOptionPane.showMessageDialog(null,
-				"U hebt een StartPunt gemaakt met volgende coordinaten:" + eindPunt.getX() + " en " + eindPunt.getY());
+		Punt startPunt = getPuntByDialog("startpunt");
+		Punt eindPunt = getPuntByDialog("eindpunt");
 		JOptionPane.showMessageDialog(null, "U hebt de lijnstuk gemaakt met volgende coordinaten:\n" + "BeginPunt: "
 				+ startPunt.toString() + "\n EindPunt: " + eindPunt.toString());
 	}
