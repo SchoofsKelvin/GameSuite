@@ -19,47 +19,49 @@ public class PictionaryUi {
 
 	public void start() {
 
-		Vorm vorm = null;
-		try {
-			boolean vormMade = false;
-			while (!vormMade) {
-				vorm = getVormByDialog();
-				JOptionPane.showMessageDialog(null, vorm.toString());
-				vormMade = true;
-			}
-		} catch (Exception e) {
-			toonError(e.getClass() + ": " + e.getMessage());
-		}
+		Vorm vorm = getVormByDialog();
+		JOptionPane.showMessageDialog(null, vorm.toString());
+
+		LijnStuk lijnStuk = maakLijnStuk();
+		JOptionPane.showMessageDialog(null, lijnStuk.toString());
 
 		JOptionPane.showMessageDialog(null, "... heeft als score " + speler.getScore());
 
 	}
 
-	public Vorm getVormByDialog() {
+	private Vorm getVormByDialog() {
 
-		Object[] shapes = { "Cirkel", "Rechthoek" };
-		String vormKeuze = (String) JOptionPane.showInputDialog(null, "Wat wilt u tekenen", "input",
-				JOptionPane.INFORMATION_MESSAGE, null, shapes, null);
+		while(true) {
+			try {
 
-		Vorm vorm = null;
-		Punt punt = getPuntByDialog("linkerbovenpunt");
+				Object[] shapes = {"Cirkel", "Rechthoek"};
+				String vormKeuze = (String) JOptionPane.showInputDialog(null, "Wat wilt u tekenen", "input",
+						JOptionPane.INFORMATION_MESSAGE, null, shapes, null);
 
-		switch (vormKeuze) {
-		case "Rechthoek":
-			int breedte = getIntegerUsingDialog("Breedte");
-			int hoogte = getIntegerUsingDialog("Hoogte");
-			vorm = new Rechthoek(punt, breedte, hoogte);
-			break;
-		case "Cirkel":
-			int radius = getIntegerUsingDialog("Radius");
-			vorm = new Cirkel(punt, radius);
-			break;
+				Vorm vorm = null;
+				Punt punt = getPuntByDialog("punt");
+
+				switch (vormKeuze) {
+					case "Rechthoek":
+						int breedte = getIntegerUsingDialog("Breedte");
+						int hoogte = getIntegerUsingDialog("Hoogte");
+						vorm = new Rechthoek(punt, breedte, hoogte);
+						break;
+					case "Cirkel":
+						int radius = getIntegerUsingDialog("Radius");
+						vorm = new Cirkel(punt, radius);
+						break;
+				}
+				return vorm;
+
+			} catch (Exception e) {
+				toonError(e.getClass() + ": " + e.getMessage());
+			}
 		}
-		return vorm;
 
 	}
 
-	public Punt getPuntByDialog(String puntNaam) {
+	private Punt getPuntByDialog(String puntNaam) {
 		int x = getIntegerUsingDialog("x coordinaat van het " + puntNaam + ":");
 		int y = getIntegerUsingDialog("y coordinaat van het " + puntNaam + ":");
 		Punt punt = new Punt(x, y);
@@ -71,14 +73,10 @@ public class PictionaryUi {
 		while (true) {
 			try {
 				String input = JOptionPane.showInputDialog(message);
-
-				if (input == null)
-					throw new CancelledException();
+				if (input == null) throw new CancelledException(); //Throwing an exception within a try/catch?
 				return Integer.parseInt(input);
-			} catch (NumberFormatException e) {
-				toonError("Invalid number!");
 			} catch (Exception e) {
-				toonError("There was a problem!\n" + e.getClass() + ": " + e.getMessage());
+				toonError(e.getClass() + ": " + e.getMessage());
 			}
 		}
 	}
@@ -87,11 +85,11 @@ public class PictionaryUi {
 		JOptionPane.showMessageDialog(null, message, "Error", JOptionPane.ERROR_MESSAGE);
 	}
 
-	public void maakLijnStuk() {
+	private LijnStuk maakLijnStuk() {
 		Punt startPunt = getPuntByDialog("startpunt");
 		Punt eindPunt = getPuntByDialog("eindpunt");
-		JOptionPane.showMessageDialog(null, "U hebt de lijnstuk gemaakt met volgende coordinaten:\n" + "BeginPunt: "
-				+ startPunt.toString() + "\n EindPunt: " + eindPunt.toString());
+		LijnStuk lijnStuk = new LijnStuk(startPunt, eindPunt);
+		return lijnStuk;
 	}
 
 }
