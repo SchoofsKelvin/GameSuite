@@ -4,16 +4,12 @@ import java.awt.Graphics;
 
 import javax.swing.JOptionPane;
 
-import domain.Cirkel;
-import domain.LijnStuk;
-import domain.Punt;
-import domain.Rechthoek;
-import domain.Speler;
-import domain.Vorm;
+import domain.*;
 
 public class PictionaryUi implements Drawable {
 
 	private Speler speler;
+	private Tekening tekening;
 
 	public PictionaryUi(Speler speler) {
 		this.speler = speler;
@@ -21,11 +17,25 @@ public class PictionaryUi implements Drawable {
 
 	public void start() {
 
-		Vorm vorm = getVormByDialog();
-		JOptionPane.showMessageDialog(null, vorm.toString());
+		tekening = getTekeningByDialog();
 
-		LijnStuk lijnStuk = maakLijnStuk();
-		JOptionPane.showMessageDialog(null, lijnStuk.toString());
+		boolean isRunning = true;
+		while (isRunning) {
+			int choice = getIntegerUsingDialog("Wat wil je doen?\n\n1. Vorm maken\n2. Tekening tonen\n\n0. Stoppen");
+			switch (choice) {
+				case 0:
+					isRunning = false;
+					break;
+				case 1:
+					tekening.voegToe(getVormByDialog());
+					break;
+				case 2:
+					toonTekening();
+					break;
+				default:
+					JOptionPane.showMessageDialog(null, "Geen juiste optie!");
+			}
+		}
 
 		JOptionPane.showMessageDialog(null, "... heeft als score " + speler.getScore());
 
@@ -63,6 +73,22 @@ public class PictionaryUi implements Drawable {
 
 	}
 
+	private Tekening getTekeningByDialog() {
+		return new Tekening(getStringUsingDialog("Geef je tekening een naam:"));
+	}
+
+	private String getStringUsingDialog(String message) {
+		String input = null;
+		while(true) {
+			input = JOptionPane.showInputDialog(null, message);
+			if(input != null) {
+				return input;
+			} else {
+				JOptionPane.showMessageDialog(null, "Enter a valid string!");
+			}
+		}
+	}
+
 	private Punt getPuntByDialog(String puntNaam) {
 		int x = getIntegerUsingDialog("x coordinaat van het " + puntNaam + ":");
 		int y = getIntegerUsingDialog("y coordinaat van het " + puntNaam + ":");
@@ -87,12 +113,18 @@ public class PictionaryUi implements Drawable {
 		JOptionPane.showMessageDialog(null, message, "Error", JOptionPane.ERROR_MESSAGE);
 	}
 
+	private void toonTekening() {
+		JOptionPane.showMessageDialog(null, tekening.toString());
+	}
+
 	private LijnStuk maakLijnStuk() {
 		Punt startPunt = getPuntByDialog("startpunt");
 		Punt eindPunt = getPuntByDialog("eindpunt");
 		LijnStuk lijnStuk = new LijnStuk(startPunt, eindPunt);
 		return lijnStuk;
 	}
+
+
 
 	@Override
 	public void draw(Graphics paramGraphics) {
