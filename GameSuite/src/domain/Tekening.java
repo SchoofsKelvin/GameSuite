@@ -3,6 +3,7 @@ package domain;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("unused")
 public class Tekening {
 	private String				naam;
 	private List<Vorm>			vormen	= new ArrayList<>();
