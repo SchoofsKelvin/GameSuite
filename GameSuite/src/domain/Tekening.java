@@ -2,17 +2,20 @@ package domain;
 
 import java.awt.Graphics;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import ui.Drawable;
 
 public class Tekening implements Drawable {
-	private String				naam;
+
 	private final static int	MIN_X	= 0;
 	private final static int	MIN_Y	= 0;
 	private final static int	MAX_X	= 399;
 	private final static int	MAX_Y	= 399;
-	private List<Vorm>			vormen	= new ArrayList<>();
+
+	private final String		naam;
+	private final List<Vorm>	vormen	= new ArrayList<>();
 
 	public Tekening(String naam) {
 		if (naam == null || naam.trim().isEmpty())
@@ -44,12 +47,6 @@ public class Tekening implements Drawable {
 		return this.vormen.size();
 	}
 
-	public void setNaam(String naam) {
-		if (naam == null)
-			throw new DomainException("naam mag niet null zijn");
-		this.naam = naam;
-	}
-
 	public boolean verwijder(Vorm vorm) {
 		if (vorm == null) throw new DomainException();
 		return vormen.remove(vorm);
@@ -64,7 +61,13 @@ public class Tekening implements Drawable {
 	public boolean equals(Object obj) {
 		return obj != null && obj.getClass().equals(getClass())
 				&& ((Tekening) obj).getNaam().equals(naam)
-				&& ((Tekening) obj).vormen.equals(vormen);
+				&& ((Tekening) obj).getVormen().equals(vormen);
+	}
+
+	private List<Vorm> getVormen() {
+		ArrayList<Vorm> copy = new ArrayList<>();
+		Collections.copy(copy, vormen);
+		return copy;
 	}
 
 	@Override

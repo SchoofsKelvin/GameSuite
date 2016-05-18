@@ -4,8 +4,10 @@ import domain.DomainException;
 import domain.Tekening;
 
 public class GameMainWindow {
-	private TekenVenster tekenvenster;
-	private String naam;
+	
+	private TekenVenster	tekenvenster;
+	@SuppressWarnings("unused")
+	private String			naam;
 
 	public GameMainWindow(String naam, Tekening tekening) {
 		setNaam(naam);

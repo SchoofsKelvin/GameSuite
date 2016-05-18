@@ -4,12 +4,12 @@ import java.awt.Graphics;
 
 import ui.Drawable;
 
-public class LijnStuk extends Vorm  implements Drawable {
-	
-	private Punt startPunt;
-	private Punt eindPunt;
-	
-	public LijnStuk(Punt startPunt, Punt eindPunt){
+public class LijnStuk extends Vorm implements Drawable {
+
+	private Punt	startPunt;
+	private Punt	eindPunt;
+
+	public LijnStuk(Punt startPunt, Punt eindPunt) {
 		setEindPunt(eindPunt);
 		setStartPunt(startPunt);
 	}
@@ -19,9 +19,8 @@ public class LijnStuk extends Vorm  implements Drawable {
 	}
 
 	public void setStartPunt(Punt startPunt) {
-		if (startPunt == null){
+		if (startPunt == null)
 			throw new DomainException("Startpunt mag niet null zijn");
-		}
 		this.startPunt = startPunt;
 	}
 
@@ -30,26 +29,27 @@ public class LijnStuk extends Vorm  implements Drawable {
 	}
 
 	public void setEindPunt(Punt eindPunt) {
-		if (eindPunt == null){
+		if (eindPunt == null)
 			throw new DomainException("Eindpunt mag niet null zijn");
-		}
 		this.eindPunt = eindPunt;
 	}
-	
+
 	@Override
-	public boolean equals(Object object){
-		if(object!=null){
-			if(object instanceof LijnStuk){
-				LijnStuk l = (LijnStuk)object;
-				return this.getStartPunt().equals(l.getStartPunt())&&this.getEindPunt().equals(l.getEindPunt());
+	public boolean equals(Object object) {
+		if (object != null) {
+			if (object instanceof LijnStuk) {
+				LijnStuk l = (LijnStuk) object;
+				return this.getStartPunt().equals(l.getStartPunt())
+						&& this.getEindPunt().equals(l.getEindPunt());
 			}
 		}
 		return false;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Punt X:"+this.getStartPunt().toString()+"Punt Y:"+this.getEindPunt().toString();
+		return "Punt X:" + this.getStartPunt().toString() + "Punt Y:"
+				+ this.getEindPunt().toString();
 	}
 
 	@Override
@@ -60,10 +60,7 @@ public class LijnStuk extends Vorm  implements Drawable {
 	@Override
 	public void draw(Graphics paramGraphics) {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
-	
-	
 
 }
