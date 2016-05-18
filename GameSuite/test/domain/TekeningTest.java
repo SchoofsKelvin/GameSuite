@@ -79,12 +79,12 @@ public class TekeningTest {
 	}
 	@Test
 	public void get_vorm_by_index(){
-		Tekening t= new Tekening();
+		Tekening t= new Tekening("tekeningNaam");
 		Vorm v = new Rechthoek(new Punt(20, 10), 10, 10);
 		Vorm c = new Cirkel(new Punt(50, 50), 10);
-			t.voegToe(v);
-			t.voegToe(c);
-			assertEquals(v, t.getVorm(0));
+		t.voegToe(v);
+		t.voegToe(c);
+		assertEquals(v, t.getVorm(0));
 	}
 	
 	@Test

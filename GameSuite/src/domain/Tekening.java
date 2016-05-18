@@ -8,8 +8,11 @@ import ui.Drawable;
 
 public class Tekening implements Drawable {
 	private String naam;
-	private int MIN_X, MIN_Y, MAX_X, MAX_Y;
-	private List<Vorm> lijst = new ArrayList<>();
+	private final static int	MIN_X	= 0;
+	private final static int	MIN_Y	= 0;
+	private final static int	MAX_X	= 399;
+	private final static int	MAX_Y	= 399;
+		private List<Vorm> vormen = new ArrayList<>();
 
 	public Tekening() {
 
@@ -27,17 +30,17 @@ public class Tekening implements Drawable {
 		if (vorm == null) {
 			throw new DomainException("Vorm mag niet null zijn");
 		}
-		this.lijst.add(vorm);
+		this.vormen.add(vorm);
 	}
 
 	public Vorm getVorm(int index) {
 		if (index < 0 || index > this.lijst.size())
 			throw new DomainException();
-		return this.lijst.get(index);
+		return this.vormen.get(index);
 	}
 
 	public int getAantalVormen() {
-		return this.lijst.size();
+		return this.vormen.size();
 	}
 
 	public void setNaam(String naam) {
@@ -46,34 +49,30 @@ public class Tekening implements Drawable {
 		this.naam = naam;
 	}
 
-	public boolean verwijder(Vorm vorm) {
-		if (vorm != null) {
-				return this.lijst.remove(vorm);
-			}
-		
-		return false;
-}
+	public void verwijder(Vorm vorm) {
+		vormen.remove(vorm);
+	}
 
 	public boolean bevat(Vorm vorm) {
 		if (vorm != null) {
-				return this.lijst.contains(vorm);
+				return this.vormen.contains(vorm);
 			}
 		return false;
+	}
+	private Vorm[] getVormen() {
+		return vormen.toArray(new Vorm[vormen.size()]);
+	}
+
+@Override
+	public boolean equals(Object obj) {
+		return obj != null && obj.getClass().equals(getClass())
+				&& ((Tekening) obj).getNaam().equals(naam)
+				&& ((Tekening) obj).getVormen().equals(vormen);
 	}
 
 	@Override
-	public boolean equals(Object o) {
-		if (o != null) {
-			if (o instanceof Tekening) {
-				Tekening t = (Tekening) o;
-				return this.getNaam().equals(t.getNaam());
-			}
-		}
-		return false;
-	}
-
 	public String toString() {
-		return "Tekening:" + this.getClass() + " " + this.getNaam();
+		return "Tekening met " + vormen.size() + " vormen";
 	}
 
 	
