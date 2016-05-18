@@ -60,15 +60,11 @@ public class Tekening implements Drawable {
 		return false;
 	}
 
-	private Vorm[] getVormen() {
-		return vormen.toArray(new Vorm[vormen.size()]);
-	}
-
 	@Override
 	public boolean equals(Object obj) {
 		return obj != null && obj.getClass().equals(getClass())
 				&& ((Tekening) obj).getNaam().equals(naam)
-				&& ((Tekening) obj).getVormen().equals(vormen);
+				&& ((Tekening) obj).vormen.equals(vormen);
 	}
 
 	@Override
