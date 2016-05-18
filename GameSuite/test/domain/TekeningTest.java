@@ -19,7 +19,7 @@ public class TekeningTest {
 	
 	@Before
 	public void setUp(){
-		Tekening t = new Tekening();
+		Tekening t = new Tekening("tekeningNaam");
 		Vorm v = new Rechthoek(new Punt(20, 10), 10, 10);
 		Vorm c = new Cirkel(new Punt(50, 50), 10);
 		t.voegToe(v);
@@ -47,7 +47,7 @@ public class TekeningTest {
 	
 	@Test
 	public void je_moet_met_de_voeg_toe_methode_de_vorm_kunnen_toevoegen(){
-		Tekening t = new Tekening();
+		Tekening t = new Tekening("tekeningNaam");
 		Vorm v = new Rechthoek(new Punt(20, 10), 10, 10);
 		Vorm c = new Cirkel(new Punt(50, 50), 10);
 		t.voegToe(v);
@@ -57,13 +57,13 @@ public class TekeningTest {
 	
 	@Test(expected=DomainException.class)
 	public void als_de_index_groter_dan_de_size_Van_lijst_gooit_exception(){
-		Tekening t = new Tekening();
+		Tekening t = new Tekening("tekeningNaam");
 		Vorm v = new Rechthoek(new Punt(20, 10), 10, 10);
 		assertEquals(v, t.getVorm(2));
 	}
 	@Test
 	public void als_de_aantal_niet_gelijk_is_geeft_false_terug(){
-		Tekening t= new Tekening();
+		Tekening t= new Tekening("tekeningNaam");
 		Vorm v = new Rechthoek(new Punt(20, 10), 10, 10);
 		Vorm c = new Cirkel(new Punt(50, 50), 10);
 			t.voegToe(v);
@@ -73,13 +73,13 @@ public class TekeningTest {
 	}
 	@Test
 	public void als_de_vorm_niet_in_de_lijst_returnt_false(){
-		Tekening tekening = new Tekening();
+		Tekening tekening = new Tekening("tekeningNaam");
 		Vorm v = new Rechthoek(new Punt(20, 80), 10, 10);
 		assertFalse(tekening.bevat(v));
 	}
 	@Test
 	public void get_vorm_by_index(){
-		Tekening t= new Tekening();
+		Tekening t= new Tekening("tekeningNaam");
 		Vorm v = new Rechthoek(new Punt(20, 10), 10, 10);
 		Vorm c = new Cirkel(new Punt(50, 50), 10);
 		t.voegToe(v);
@@ -89,7 +89,7 @@ public class TekeningTest {
 	
 	@Test
 	public void vorm_verwijderd_lijst_moet_verminderen(){
-		Tekening t = new Tekening();
+		Tekening t = new Tekening("tekeningNaam");
 		Vorm v = new Rechthoek(new Punt(20, 10), 10, 10);
 		t.voegToe(v);
 		t.verwijder(v);
