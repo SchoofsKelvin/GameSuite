@@ -11,6 +11,8 @@ public class Tekening extends Vorm {
 	public Tekening() {
 
 	}
+	
+	
 
 	public Tekening(String naam) {
 		setNaam(naam);
