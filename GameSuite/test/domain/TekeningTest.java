@@ -19,11 +19,11 @@ public class TekeningTest {
 	
 	@Before
 	public void setUp(){
-		Tekening t = new Tekening();
+		/*Tekening t = new Tekening();
 		Vorm v = new Rechthoek(new Punt(20, 10), 10, 10);
 		Vorm c = new Cirkel(new Punt(50, 50), 10);
 		t.voegToe(v);
-		t.voegToe(c);
+		t.voegToe(c);*/
 	}
 	
 	
@@ -82,18 +82,18 @@ public class TekeningTest {
 		Tekening t= new Tekening();
 		Vorm v = new Rechthoek(new Punt(20, 10), 10, 10);
 		Vorm c = new Cirkel(new Punt(50, 50), 10);
-		t.voegToe(v);
-		t.voegToe(c);
-		assertEquals(v, t.getVorm(0));
+			t.voegToe(v);
+			t.voegToe(c);
+			assertEquals(v, t.getVorm(0));
 	}
 	
 	@Test
 	public void vorm_verwijderd_lijst_moet_verminderen(){
 		Tekening t = new Tekening();
+		
 		Vorm v = new Rechthoek(new Punt(20, 10), 10, 10);
-		t.voegToe(v);
 		t.verwijder(v);
-		assertEquals(0, t.getAantalVormen());
+		assertEquals(1, t.getAantalVormen());
 	}
 	@Test
 	public void Tekening_equals(){
@@ -104,8 +104,6 @@ public class TekeningTest {
 		assertTrue(c.equals(a));
 		assertFalse(t.equals(b));
 	}
-
-
 	
 	
 	

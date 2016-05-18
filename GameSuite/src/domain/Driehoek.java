@@ -1,6 +1,10 @@
 package domain;
 
-public class Driehoek extends Vorm {
+import java.awt.Graphics;
+
+import ui.Drawable;
+
+public class Driehoek extends Vorm implements Drawable {
 
 	private Punt hoekpunt1, hoekpunt2, hoekpunt3;
 
@@ -51,5 +55,11 @@ public class Driehoek extends Vorm {
 	@Override
 	public Omhullende getOmhullende() {
 		return Omhullende.vanPunten(hoekpunt1,hoekpunt2,hoekpunt3);
+	}
+
+	@Override
+	public void draw(Graphics paramGraphics) {
+		// TODO Auto-generated method stub
+		
 	}
 }

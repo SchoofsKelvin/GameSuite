@@ -3,19 +3,21 @@ package domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Tekening {
-	private String				naam;
-	private List<Vorm>			vormen	= new ArrayList<>();
+import ui.Drawable;
 
-	private final static int	MIN_X	= 0;
-	private final static int	MIN_Y	= 0;
-	private final static int	MAX_X	= 399;
-	private final static int	MAX_Y	= 399;
+public class Tekening extends Vorm implements Drawable {
+	private String naam;
+	private int MIN_X, MIN_Y, MAX_X, MAX_Y;
+	private List<Vorm> lijst = new ArrayList<>();
+
+	public Tekening() {
+
+	}
+	
+	
 
 	public Tekening(String naam) {
-		if (naam == null || naam.trim().isEmpty())
-			throw new DomainException("Geldige naam verwacht");
-		this.naam = naam;
+		setNaam(naam);
 	}
 
 	public String getNaam() {
@@ -23,39 +25,68 @@ public class Tekening {
 	}
 
 	public void voegToe(Vorm vorm) {
-		if (vorm == null) throw new DomainException("Vorm mag niet null zijn");
-		vormen.add(vorm);
+		if (vorm == null) {
+			throw new DomainException("Vorm mag niet null zijn");
+		}
+		if (vorm instanceof Tekening) {
+			Vorm v = (Vorm) vorm;
+			this.lijst.add(vorm);
+		}
 	}
 
 	public Vorm getVorm(int index) {
-		return vormen.get(index);
+		if (index < 0 || index > this.lijst.size())
+			throw new DomainException();
+		return this.lijst.get(index);
 	}
 
 	public int getAantalVormen() {
-		return vormen.size();
+		return this.lijst.size();
 	}
 
-	public void verwijder(Vorm vorm) {
-		vormen.remove(vorm);
+	public void setNaam(String naam) {
+		if (naam == null)
+			throw new DomainException("naam mag niet null zijn");
+		this.naam = naam;
+	}
+
+	public boolean verwijder(Vorm vorm) {
+		if (vorm != null) {
+			if (vorm instanceof Tekening) {
+				Tekening tek = (Tekening) vorm;
+				return this.lijst.remove(vorm);
+			}
+		}
+		return false;
 	}
 
 	public boolean bevat(Vorm vorm) {
-		return vormen.contains(vorm);
-	}
-
-	private Vorm[] getVormen() {
-		return vormen.toArray(new Vorm[vormen.size()]);
-	}
-
-	@Override
-	public String toString() {
-		return "Tekening met " + vormen.size() + " vormen";
+		if (vorm != null) {
+			if (vorm instanceof Tekening) {
+				Tekening tek = (Tekening) vorm;
+				return this.lijst.contains(tek);
+			}
+		}
+		return false;
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		return obj != null && obj.getClass().equals(getClass())
-				&& ((Tekening) obj).getNaam().equals(naam)
-				&& ((Tekening) obj).getVormen().equals(vormen);
+	public boolean equals(Object o) {
+		if (o != null) {
+			if (o instanceof Tekening) {
+				Tekening t = (Tekening) o;
+				return this.getNaam().equals(t.getNaam());
+			}
+		}
+		return false;
+	}
+	public String toString(){
+		return "Tekening:"+this.getClass()+" "+this.getNaam();
+	}
+
+	@Override
+	public Omhullende getOmhullende() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

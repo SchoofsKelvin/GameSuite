@@ -1,6 +1,10 @@
 package domain;
 
-public class LijnStuk extends Vorm {
+import java.awt.Graphics;
+
+import ui.Drawable;
+
+public class LijnStuk extends Vorm  implements Drawable {
 	
 	private Punt startPunt;
 	private Punt eindPunt;
@@ -51,6 +55,12 @@ public class LijnStuk extends Vorm {
 	@Override
 	public Omhullende getOmhullende() {
 		return new Omhullende(startPunt, eindPunt);
+	}
+
+	@Override
+	public void draw(Graphics paramGraphics) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	
