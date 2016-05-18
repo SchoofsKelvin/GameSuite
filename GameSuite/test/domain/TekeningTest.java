@@ -8,6 +8,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class TekeningTest {
+	
+	// TODO: verwijderVorm(null) exception
+	// TODO: deftige namen
 
 	private Tekening t;
 
