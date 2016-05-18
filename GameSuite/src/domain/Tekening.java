@@ -4,15 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Tekening extends Vorm {
+
 	private String naam;
-	private int MIN_X, MIN_Y, MAX_X, MAX_Y;
+	private static final int MIN_X = 0;
+	private static final int MAX_X = 399;
+	private static final int MIN_Y = 0;
+	private static final int MAX_Y = 399;
 	private List<Vorm> lijst = new ArrayList<>();
 
 	public Tekening() {
 
 	}
-	
-	
 
 	public Tekening(String naam) {
 		setNaam(naam);
@@ -25,6 +27,12 @@ public class Tekening extends Vorm {
 	public void voegToe(Vorm vorm) {
 		if (vorm == null) {
 			throw new DomainException("Vorm mag niet null zijn");
+		}
+		if(	vorm.getOmhullende().getMinimumX()<MIN_X||
+			vorm.getOmhullende().getMaximumX()>MAX_X ||
+			vorm.getOmhullende().getMinimumY()<MIN_Y ||
+			vorm.getOmhullende().getMaximumY()>MAX_Y) {
+			throw new DomainException();
 		}
 		this.lijst.add(vorm);
 	}
@@ -71,12 +79,15 @@ public class Tekening extends Vorm {
 		return false;
 	}
 	public String toString(){
-		return "Tekening:"+this.getClass()+" "+this.getNaam();
+		String out = "Tekening met naam " + this.naam + " bestaat uit " + this.lijst.size() + " vormen:";
+		for (Vorm v : this.lijst) {
+			out += "\n" + v.toString();
+		}
+		return out;
 	}
 
 	@Override
 	public Omhullende getOmhullende() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 }
