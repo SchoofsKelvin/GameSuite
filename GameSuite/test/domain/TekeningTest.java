@@ -88,12 +88,18 @@ public class TekeningTest {
 	}
 	
 	@Test
-	public void vorm_verwijderd_lijst_moet_verminderen(){
-		Tekening t = new Tekening();
+	public void verwijderd_moet_vorm_verwijderen(){
+		Tekening tekening = new Tekening();
 		
-		Vorm v = new Rechthoek(new Punt(20, 10), 10, 10);
-		t.verwijder(v);
-		assertEquals(1, t.getAantalVormen());
+		Vorm driehoek = new Driehoek(new Punt(10,5), new Punt(5, 10), new Punt(3,8));
+		Vorm rechthoek = new Rechthoek(new Punt(20, 10), 10, 10);
+		tekening.voegToe(driehoek);
+		tekening.voegToe(rechthoek);
+		
+		tekening.verwijder(rechthoek);
+		assertEquals(1, tekening.getAantalVormen());
+		assertTrue(tekening.bevat(driehoek));
+		assertFalse(tekening.bevat(rechthoek));
 	}
 	@Test
 	public void Tekening_equals(){

@@ -1,11 +1,12 @@
 package domain;
 
+import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
 
 import ui.Drawable;
 
-public class Tekening extends Vorm implements Drawable {
+public class Tekening implements Drawable {
 	private String naam;
 	private int MIN_X, MIN_Y, MAX_X, MAX_Y;
 	private List<Vorm> lijst = new ArrayList<>();
@@ -13,8 +14,6 @@ public class Tekening extends Vorm implements Drawable {
 	public Tekening() {
 
 	}
-	
-	
 
 	public Tekening(String naam) {
 		setNaam(naam);
@@ -28,10 +27,7 @@ public class Tekening extends Vorm implements Drawable {
 		if (vorm == null) {
 			throw new DomainException("Vorm mag niet null zijn");
 		}
-		if (vorm instanceof Tekening) {
-			Vorm v = (Vorm) vorm;
-			this.lijst.add(vorm);
-		}
+		this.lijst.add(vorm);
 	}
 
 	public Vorm getVorm(int index) {
@@ -52,21 +48,16 @@ public class Tekening extends Vorm implements Drawable {
 
 	public boolean verwijder(Vorm vorm) {
 		if (vorm != null) {
-			if (vorm instanceof Tekening) {
-				Tekening tek = (Tekening) vorm;
 				return this.lijst.remove(vorm);
 			}
-		}
+		
 		return false;
-	}
+}
 
 	public boolean bevat(Vorm vorm) {
 		if (vorm != null) {
-			if (vorm instanceof Tekening) {
-				Tekening tek = (Tekening) vorm;
-				return this.lijst.contains(tek);
+				return this.lijst.contains(vorm);
 			}
-		}
 		return false;
 	}
 
@@ -80,13 +71,16 @@ public class Tekening extends Vorm implements Drawable {
 		}
 		return false;
 	}
-	public String toString(){
-		return "Tekening:"+this.getClass()+" "+this.getNaam();
+
+	public String toString() {
+		return "Tekening:" + this.getClass() + " " + this.getNaam();
 	}
 
+	
+
 	@Override
-	public Omhullende getOmhullende() {
+	public void draw(Graphics paramGraphics) {
 		// TODO Auto-generated method stub
-		return null;
+
 	}
 }
