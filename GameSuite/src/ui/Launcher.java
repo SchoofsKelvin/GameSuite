@@ -12,10 +12,6 @@ public class Launcher {
 		Speler speler = new Speler(naam);
 		PictionaryUi ui = new PictionaryUi(speler);
 		ui.start();
-		ui.maakLijnStuk();
-		
 	}
-	
-	
 
 }
