@@ -34,7 +34,7 @@ public class Tekening implements Drawable {
 	}
 
 	public Vorm getVorm(int index) {
-		if (index < 0 || index > this.lijst.size())
+		if (index < 0 || index > this.vormen.size())
 			throw new DomainException();
 		return this.vormen.get(index);
 	}
