@@ -1,5 +1,7 @@
 package ui;
 
+import java.awt.Graphics;
+
 import javax.swing.JOptionPane;
 
 import domain.Cirkel;
@@ -9,7 +11,7 @@ import domain.Rechthoek;
 import domain.Speler;
 import domain.Vorm;
 
-public class PictionaryUi {
+public class PictionaryUi implements Drawable {
 
 	private Speler speler;
 
@@ -90,6 +92,12 @@ public class PictionaryUi {
 		Punt eindPunt = getPuntByDialog("eindpunt");
 		LijnStuk lijnStuk = new LijnStuk(startPunt, eindPunt);
 		return lijnStuk;
+	}
+
+	@Override
+	public void draw(Graphics paramGraphics) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
