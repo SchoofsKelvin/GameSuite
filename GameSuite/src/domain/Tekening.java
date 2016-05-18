@@ -1,23 +1,25 @@
 package domain;
 
+import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Tekening extends Vorm {
+import ui.Drawable;
 
+public class Tekening implements Drawable {
 	private String naam;
-	private static final int MIN_X = 0;
-	private static final int MAX_X = 399;
-	private static final int MIN_Y = 0;
-	private static final int MAX_Y = 399;
-	private List<Vorm> lijst = new ArrayList<>();
+	private final static int	MIN_X	= 0;
+	private final static int	MIN_Y	= 0;
+	private final static int	MAX_X	= 399;
+	private final static int	MAX_Y	= 399;
+		private List<Vorm> vormen = new ArrayList<>();
 
-	public Tekening() {
-
-	}
+	
 
 	public Tekening(String naam) {
-		setNaam(naam);
+		if (naam == null || naam.trim().isEmpty())
+			throw new DomainException("Geldige naam verwacht");
+		this.naam = naam;
 	}
 
 	public String getNaam() {
@@ -34,17 +36,17 @@ public class Tekening extends Vorm {
 			vorm.getOmhullende().getMaximumY()>MAX_Y) {
 			throw new DomainException();
 		}
-		this.lijst.add(vorm);
+		this.vormen.add(vorm);
 	}
 
 	public Vorm getVorm(int index) {
-		if (index < 0 || index > this.lijst.size())
+		if (index < 0 || index > this.vormen.size())
 			throw new DomainException();
-		return this.lijst.get(index);
+		return this.vormen.get(index);
 	}
 
 	public int getAantalVormen() {
-		return this.lijst.size();
+		return this.vormen.size();
 	}
 
 	public void setNaam(String naam) {
@@ -60,24 +62,21 @@ public class Tekening extends Vorm {
 
 	public boolean bevat(Vorm vorm) {
 		if (vorm != null) {
-			if (vorm instanceof Tekening) {
-				Tekening tek = (Tekening) vorm;
-				return this.lijst.contains(tek);
+				return this.vormen.contains(vorm);
 			}
-		}
 		return false;
+	}
+	private Vorm[] getVormen() {
+		return vormen.toArray(new Vorm[vormen.size()]);
 	}
 
-	@Override
-	public boolean equals(Object o) {
-		if (o != null) {
-			if (o instanceof Tekening) {
-				Tekening t = (Tekening) o;
-				return this.getNaam().equals(t.getNaam());
-			}
-		}
-		return false;
+@Override
+	public boolean equals(Object obj) {
+		return obj != null && obj.getClass().equals(getClass())
+				&& ((Tekening) obj).getNaam().equals(naam)
+				&& ((Tekening) obj).getVormen().equals(vormen);
 	}
+	@Override
 	public String toString(){
 		String out = "Tekening met naam " + this.naam + " bestaat uit " + this.lijst.size() + " vormen:";
 		for (Vorm v : this.lijst) {
@@ -86,8 +85,11 @@ public class Tekening extends Vorm {
 		return out;
 	}
 
+
+
 	@Override
 	public Omhullende getOmhullende() {
+		// TODO Auto-generated method stub
 		return null;
 	}
 }

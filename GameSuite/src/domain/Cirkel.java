@@ -1,6 +1,10 @@
 package domain;
 
-public class Cirkel extends Vorm {
+import java.awt.Graphics;
+
+import ui.Drawable;
+
+public class Cirkel extends Vorm implements Drawable{
 
 	private Punt	middelpunt;
 	private int		radius;
@@ -46,8 +50,14 @@ public class Cirkel extends Vorm {
 	@Override
 	public Omhullende getOmhullende() {
 		int x = middelpunt.getX(), y = middelpunt.getY();
-		Punt punt1 = new Punt(x-radius, y-radius);
-		Punt punt2 = new Punt(x+radius, y+radius);
+		Punt punt1 = new Punt(x - radius, y - radius);
+		Punt punt2 = new Punt(x + radius, y + radius);
 		return new Omhullende(punt1, punt2);
+	}
+
+	@Override
+	public void draw(Graphics paramGraphics) {
+		// TODO Auto-generated method stub
+		
 	}
 }
