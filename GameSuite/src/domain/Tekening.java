@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Tekening {
 	private String				naam;
-	private List<Vorm>		vormen	= new ArrayList<>();
+	private List<Vorm>			vormen	= new ArrayList<>();
 
 	private final static int	MIN_X	= 0;
 	private final static int	MIN_Y	= 0;
