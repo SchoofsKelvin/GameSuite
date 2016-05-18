@@ -47,7 +47,6 @@ public class TekeningTest {
 		Vorm c = new Cirkel(new Punt(50, 50), 10);
 		t.voegToe(v);
 		t.voegToe(c);
-		System.out.println(t.getAantalVormen());
 	}
 
 	@Test(expected = DomainException.class)
