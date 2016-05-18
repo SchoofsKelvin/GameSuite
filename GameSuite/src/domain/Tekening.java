@@ -26,10 +26,7 @@ public class Tekening extends Vorm {
 		if (vorm == null) {
 			throw new DomainException("Vorm mag niet null zijn");
 		}
-		if (vorm instanceof Tekening) {
-			Vorm v = (Vorm) vorm;
-			this.lijst.add(vorm);
-		}
+		this.lijst.add(vorm);
 	}
 
 	public Vorm getVorm(int index) {
@@ -49,13 +46,8 @@ public class Tekening extends Vorm {
 	}
 
 	public boolean verwijder(Vorm vorm) {
-		if (vorm != null) {
-			if (vorm instanceof Tekening) {
-				Tekening tek = (Tekening) vorm;
-				return this.lijst.remove(vorm);
-			}
-		}
-		return false;
+		if(vorm == null) throw new DomainException();
+		return this.lijst.remove(vorm);
 	}
 
 	public boolean bevat(Vorm vorm) {
