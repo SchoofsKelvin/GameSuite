@@ -8,35 +8,26 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class TekeningTest {
-	private String naam = "jef";
-	private int MIN_X, MIN_Y, MAX_X, MAX_Y;
 
 	private Tekening t;
 
 	@Before
 	public void setUp() {
 		t = new Tekening("test");
-		Vorm v = new Rechthoek(new Punt(20, 10), 10, 10);
-		Vorm c = new Cirkel(new Punt(50, 50), 10);
-		t.voegToe(v);
-		t.voegToe(c);
 	}
 
 	@Test(expected = DomainException.class)
-	public void setNaam_gooit_exception_als_naam_null_is() {
-		Tekening t = new Tekening(null);
+	public void Tekening_gooit_exception_als_naam_null_is() {
+		new Tekening(null);
 	}
 
 	@Test(expected = DomainException.class)
-	public void setVoegToe_gooit_exception_als_type_null() {
-		Rechthoek r = null;
-		Tekening t = new Tekening(null);
-		t.voegToe(r);
+	public void VoegToe_gooit_exception_als_type_null() {
+		t.voegToe(null);
 	}
 
 	@Test(expected = DomainException.class)
-	public void als_de_index_negatief_is_gooit_exception() {
-		Tekening t = new Tekening(null);
+	public void getVorm_gooit_exception_als_index_negatief_is() {
 		t.getVorm(-1);
 	}
 
@@ -47,36 +38,35 @@ public class TekeningTest {
 		Vorm c = new Cirkel(new Punt(50, 50), 10);
 		t.voegToe(v);
 		t.voegToe(c);
-		System.out.println(t.getAantalVormen());
+		assertEquals(2,t.getAantalVormen());
+		assertEquals(t.getVorm(0), v);
+		assertEquals(t.getVorm(1), c);
 	}
 
 	@Test(expected = DomainException.class)
-	public void als_de_index_groter_dan_de_size_Van_lijst_gooit_exception() {
-		Tekening t = new Tekening("test");
-		Vorm v = new Rechthoek(new Punt(20, 10), 10, 10);
-		assertEquals(v, t.getVorm(2));
+	public void getVorm_gooit_exception_als_index_groter_dan_size_is() {
+		t.getVorm(t.getAantalVormen()+2);
 	}
 
 	@Test
-	public void als_de_aantal_niet_gelijk_is_geeft_false_terug() {
+	public void getAantalVormen_geeft_juiste_waarde_terug() {
 		Tekening t = new Tekening("test");
 		Vorm v = new Rechthoek(new Punt(20, 10), 10, 10);
 		Vorm c = new Cirkel(new Punt(50, 50), 10);
 		t.voegToe(v);
 		t.voegToe(c);
-		System.out.println(t.getAantalVormen());
 		assertEquals(2, t.getAantalVormen());
 	}
 
 	@Test
-	public void als_de_vorm_niet_in_de_lijst_returnt_false() {
+	public void bevat_geeft_vals_als_vorm_niet_in_tekening_zit() {
 		Tekening tekening = new Tekening("test");
 		Vorm v = new Rechthoek(new Punt(20, 80), 10, 10);
 		assertFalse(tekening.bevat(v));
 	}
 
 	@Test
-	public void get_vorm_by_index() {
+	public void getVorm_werkt() {
 		Tekening t = new Tekening("tekeningNaam");
 		Vorm v = new Rechthoek(new Punt(20, 10), 10, 10);
 		Vorm c = new Cirkel(new Punt(50, 50), 10);
