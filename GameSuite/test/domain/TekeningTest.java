@@ -105,7 +105,33 @@ public class TekeningTest {
 		assertFalse(t.equals(b));
 	}
 
+	@Test (expected = DomainException.class)
+	public void Tekening_vorm_binnen_bounds_left(){
+		Tekening t = new Tekening();
+		Vorm rechthoek = new Rechthoek(new Punt(-2,2), 50, 50);
+		t.voegToe(rechthoek);
+	}
 
+	@Test (expected = DomainException.class)
+	public void Tekening_vorm_binnen_bounds_right(){
+		Tekening t = new Tekening();
+		Vorm rechthoek = new Rechthoek(new Punt(2,2), 500000, 50);
+		t.voegToe(rechthoek);
+	}
+
+	@Test (expected = DomainException.class)
+	public void Tekening_vorm_binnen_bounds_up(){
+		Tekening t = new Tekening();
+		Vorm rechthoek = new Rechthoek(new Punt(2,-2), 50, 50);
+		t.voegToe(rechthoek);
+	}
+
+	@Test (expected = DomainException.class)
+	public void Tekening_vorm_binnen_bounds_down(){
+		Tekening t = new Tekening();
+		Vorm rechthoek = new Rechthoek(new Punt(2,2), 50, 500000);
+		t.voegToe(rechthoek);
+	}
 	
 	
 	
