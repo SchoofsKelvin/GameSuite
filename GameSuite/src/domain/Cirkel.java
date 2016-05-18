@@ -46,8 +46,9 @@ public class Cirkel extends Vorm {
 	@Override
 	public Omhullende getOmhullende() {
 		int x = middelpunt.getX(), y = middelpunt.getY();
-		Punt punt1 = new Punt(x-radius, y-radius);
-		Punt punt2 = new Punt(x+radius, y+radius);
+		Punt punt1 = new Punt(x - radius, y - radius);
+		Punt punt2 = new Punt(x + radius, y + radius);
 		return new Omhullende(punt1, punt2);
 	}
+
 }
