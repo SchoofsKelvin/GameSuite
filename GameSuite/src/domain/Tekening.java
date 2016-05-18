@@ -14,12 +14,12 @@ public class Tekening implements Drawable {
 	private final static int	MAX_Y	= 399;
 		private List<Vorm> vormen = new ArrayList<>();
 
-	public Tekening() {
-
-	}
+	
 
 	public Tekening(String naam) {
-		setNaam(naam);
+		if (naam == null || naam.trim().isEmpty())
+			throw new DomainException("Geldige naam verwacht");
+		this.naam = naam;
 	}
 
 	public String getNaam() {
