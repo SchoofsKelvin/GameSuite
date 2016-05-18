@@ -44,8 +44,10 @@ public class Tekening {
 		return vormen.contains(vorm);
 	}
 
-	private Vorm[] getVormen() {
-		return vormen.toArray(new Vorm[vormen.size()]);
+	public List<Vorm> getVormen() {
+		ArrayList<Vorm> copy = new ArrayList<>();
+		copy.addAll(vormen);
+		return copy;
 	}
 
 	@Override
@@ -55,6 +57,7 @@ public class Tekening {
 
 	@Override
 	public boolean equals(Object obj) {
+		System.out.println(((Tekening) obj).getVormen().equals(vormen));
 		return obj != null && obj.getClass().equals(getClass())
 				&& ((Tekening) obj).getNaam().equals(naam)
 				&& ((Tekening) obj).getVormen().equals(vormen);
