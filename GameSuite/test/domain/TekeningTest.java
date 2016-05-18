@@ -38,9 +38,12 @@ public class TekeningTest {
 		Vorm c = new Cirkel(new Punt(50, 50), 10);
 		t.voegToe(v);
 		t.voegToe(c);
+<<<<<<< HEAD
 		assertEquals(2,t.getAantalVormen());
 		assertEquals(t.getVorm(0), v);
 		assertEquals(t.getVorm(1), c);
+=======
+>>>>>>> branch 'master' of https://github.com/SchoofsKelvin/GameSuite.git
 	}
 
 	@Test(expected = DomainException.class)
