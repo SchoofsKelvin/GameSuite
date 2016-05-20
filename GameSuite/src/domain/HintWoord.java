@@ -30,8 +30,9 @@ public class HintWoord {
 	
 	@Override
 	public String toString() {
-		StringBuilder res = new StringBuilder(letters.length);
+		StringBuilder res = new StringBuilder(letters.length*2);
 		for (HintLetter letter : letters) {
+			res.append(' ');
 			res.append(letter.toChar());
 		}
 		return res.toString();
