@@ -2,6 +2,8 @@ package ui;
 
 import java.awt.BorderLayout;
 
+import domain.HangMan;
+
 public class HangManHoofdScherm extends GameHoofdScherm {
 
 	private static final long serialVersionUID = 1L;
