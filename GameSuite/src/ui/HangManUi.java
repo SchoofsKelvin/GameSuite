@@ -2,12 +2,21 @@ package ui;
 
 import domain.Speler;
 
-public class HangManUi {
-	
-	@SuppressWarnings("unused")
-	private Speler speler;
+public class HangManUi extends Spel {
 
-	public void play() {
-		
+	@SuppressWarnings("unused")
+	private Speler				speler;
+
+	public HangManUi(Speler speler) {
+		super(speler);
+	}
+
+	@Override
+	public void start() {
+
+	}
+
+	public static String getSpelNaam() {
+		return "Hangman";
 	}
 }
