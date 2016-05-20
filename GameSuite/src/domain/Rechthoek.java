@@ -1,10 +1,10 @@
 package domain;
 
-import java.awt.Graphics;
+import java.awt.*;
 
 import ui.Drawable;
 
-public class Rechthoek extends Vorm implements Drawable {
+public class Rechthoek extends Vorm {
 
 	private Punt	linkerBovenhoek;
 	private int		breedte;
@@ -77,8 +77,9 @@ public class Rechthoek extends Vorm implements Drawable {
 
 	@Override
 	public void draw(Graphics paramGraphics) {
-		// TODO Auto-generated method stub
-
+        System.out.println("teken");
+        Graphics2D g2 = (Graphics2D) paramGraphics;
+        g2.drawRect(linkerBovenhoek.getX(), linkerBovenhoek.getY(), breedte, hoogte);
 	}
 
 }

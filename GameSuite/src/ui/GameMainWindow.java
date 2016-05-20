@@ -3,15 +3,20 @@ package ui;
 import domain.DomainException;
 import domain.Tekening;
 
-public class GameMainWindow {
+import javax.swing.*;
+
+public class GameMainWindow extends JFrame {
 	
-	private TekenVenster	tekenvenster;
-	@SuppressWarnings("unused")
-	private String			naam;
+	private TekenVenster tekenVenster;
+	private String naam;
 
 	public GameMainWindow(String naam, Tekening tekening) {
 		setNaam(naam);
-		this.tekenvenster = new TekenVenster(tekening);
+		this.tekenVenster = new TekenVenster(tekening);
+		this.setSize(800, 600);
+		this.setName(this.naam);
+        this.add(this.tekenVenster);
+        this.tekenVenster.setVisible(true);
 	}
 
 	public void setNaam(String naam) {
@@ -21,6 +26,7 @@ public class GameMainWindow {
 	}
 
 	public void teken() {
-		tekenvenster.teken();
+        tekenVenster.teken();
 	}
+
 }

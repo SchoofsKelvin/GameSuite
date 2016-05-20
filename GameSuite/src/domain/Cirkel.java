@@ -4,7 +4,7 @@ import java.awt.Graphics;
 
 import ui.Drawable;
 
-public class Cirkel extends Vorm implements Drawable {
+public class Cirkel extends Vorm {
 
 	private Punt	middelpunt;
 	private int		radius;
@@ -55,9 +55,8 @@ public class Cirkel extends Vorm implements Drawable {
 		return new Omhullende(punt1, punt2);
 	}
 
-	@Override
-	public void draw(Graphics paramGraphics) {
-		// TODO Auto-generated method stub
+    @Override
+    public void draw(Graphics paramGraphics) {
 
-	}
+    }
 }

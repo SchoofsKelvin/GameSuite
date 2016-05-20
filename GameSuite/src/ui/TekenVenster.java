@@ -1,13 +1,13 @@
 package ui;
 
-import java.awt.Graphics;
+import java.awt.*;
 
 import domain.DomainException;
 import domain.Tekening;
+import domain.Vorm;
 
-public class TekenVenster {
-	
-	@SuppressWarnings("unused")
+public class TekenVenster extends Canvas {
+
 	private Tekening tekening;
 
 	public TekenVenster(Tekening tekening) {
@@ -20,10 +20,14 @@ public class TekenVenster {
 	}
 
 	public void teken() {
+		this.repaint();
+    }
 
+	@Override
+	public void paint(Graphics graphics) {
+        for(Vorm vorm : tekening.getVormen()) {
+			vorm.draw(graphics);
+		}
 	}
 
-	public void print(Graphics graphics) {
-
-	}
 }

@@ -64,7 +64,7 @@ public class Tekening implements Drawable {
 				&& ((Tekening) obj).getVormen().equals(vormen);
 	}
 
-	private List<Vorm> getVormen() {
+	public List<Vorm> getVormen() {
 		ArrayList<Vorm> copy = new ArrayList<>();
 		Collections.copy(copy, vormen);
 		return copy;

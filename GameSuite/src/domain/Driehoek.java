@@ -4,7 +4,7 @@ import java.awt.Graphics;
 
 import ui.Drawable;
 
-public class Driehoek extends Vorm implements Drawable {
+public class Driehoek extends Vorm {
 
 	private Punt hoekpunt1, hoekpunt2, hoekpunt3;
 
