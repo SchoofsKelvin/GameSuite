@@ -131,7 +131,6 @@ public class PictionaryUi extends Spel implements Drawable {
 
 	}
 
-	@Override
 	public static String getSpelNaam() {
 		return "Pictionary";
 	}

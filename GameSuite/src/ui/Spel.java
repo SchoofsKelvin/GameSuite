@@ -12,5 +12,7 @@ public abstract class Spel {
 	
 	public abstract void start();
 	
-	public static String getSpelNaam;
+	public static String getSpelNaam() {
+		throw new IllegalStateException("Not implemented");
+	}
 }

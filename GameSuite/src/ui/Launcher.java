@@ -28,6 +28,7 @@ public class Launcher {
 
 	@SuppressWarnings("unchecked")
 	private static Class<? extends Spel> getSpel() throws Exception {
+		@SuppressWarnings("rawtypes")
 		Class[] games = { PictionaryUi.class, HangManUi.class };
 		String[] names = new String[games.length];
 		for (int i = 0; i < games.length; i++) {
