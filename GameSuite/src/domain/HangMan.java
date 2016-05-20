@@ -13,6 +13,7 @@ public class HangMan {
 	public HangMan(Speler speler, WoordenLijst woordenlijst) {
 		this.speler = speler;
 		this.woordenlijst = woordenlijst;
+		woord = new HintWoord(woordenlijst.getRandomWoord());
 	}
 	
     public String getHint() {
@@ -28,11 +29,11 @@ public class HangMan {
     }
     
     public void raad(char letter) {
-    	woord.raad(letter); // TODO ?
+    	woord.raad(letter);
     }
     
     public boolean isGameOver() {
-    	return woord.isGeraden() || tekening.getAantalOntzichtbaar() == 0;
+    	return woord.isGeraden() || tekening.getAantalOnzichtbaar() == 0;
     }
     
     public boolean isGewonnen() {

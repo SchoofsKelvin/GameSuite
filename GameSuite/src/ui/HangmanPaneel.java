@@ -7,6 +7,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -53,10 +54,20 @@ public class HangmanPaneel extends JPanel {
 					guess = input.charAt(0);
 				}
 				//TODO raad
+				
+				spel.raad(guess);
 
 				woord.setText(getSpel().getHint());
 				letter.setText("");
 				getTekenVenster().teken();
+				
+				if (spel.isGewonnen()) {
+					JOptionPane.showMessageDialog(null, "Gewonnen");
+					System.exit(0);
+				} else if (spel.isGameOver()) {
+					JOptionPane.showMessageDialog(null, "Verloren");
+					System.exit(0);
+				}
 				
 				//TODO
 				//toon boodschap als gewonnen of verloren en vraag of speler opnieuw wilt spelen

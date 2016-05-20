@@ -15,6 +15,7 @@ public class Launcher {
 		}
 		Speler speler = new Speler(naam);
 		Class<? extends Spel> spel = getSpel();
+		System.out.println(speler);
 		spel.getConstructor(Speler.class).newInstance(speler).start();
 	}
 

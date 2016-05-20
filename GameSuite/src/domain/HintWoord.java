@@ -6,6 +6,8 @@ public class HintWoord {
 	private String woord;
 
 	public HintWoord(String woord) {
+		if (woord == null) 
+			throw new DomainException("Geldig woord verwacht");
 		letters = new HintLetter[woord.length()];
 		for (int i = 0; i < woord.length(); i++) {
 			letters[i] = new HintLetter(woord.charAt(i));

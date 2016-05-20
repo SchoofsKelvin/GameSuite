@@ -9,7 +9,7 @@ public class WoordenLijst {
 	private List<String> woorden;
 	
 	public WoordenLijst() {
-		woorden = new ArrayList();
+		woorden = new ArrayList<>();
 	}
 
 	public int getAantalWoorden() {

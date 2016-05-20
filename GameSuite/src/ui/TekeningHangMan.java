@@ -45,7 +45,7 @@ public class TekeningHangMan extends Tekening {
 		}
 	}
 
-	public int getAantalOntzichtbaar() {
+	public int getAantalOnzichtbaar() {
 		int res = 0;
 		for (Vorm vorm : vormen) {
 			if (!vorm.isZichtbaar()) {
