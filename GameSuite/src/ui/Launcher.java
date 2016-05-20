@@ -18,30 +18,8 @@ public class Launcher {
 			System.exit(0);
 		}
 		Speler speler = new Speler(naam);
-		PictionaryUi ui = new PictionaryUi(speler);
-		ui.start();
-		Tekening tekening = new Tekening("Test");
-
-		ArrayList<Vorm> list = (ArrayList<Vorm>) tekening.getVormen();
-		for (int i = 0; i < list.size(); i++) {
-			if (list.get(i) instanceof Rechthoek) {
-				Rechthoek r = (Rechthoek) list.get(i);
-				tekening.voegToe(new Rechthoek(new Punt(r.getLinkerBovenhoek().getX(), r.getLinkerBovenhoek().getY()),
-						r.getBreedte(), r.getHoogte()));
-			}
-		}
-		ui.toonTekening(speler.getNaam(), tekening);
-		/*
-		 * tekening.voegToe(new Rechthoek(new Punt(10, 10), 70, 50));
-		 * tekening.voegToe(new Cirkel(new Punt(200, 150), 100));
-		 * tekening.voegToe(new Driehoek(new Punt(5, 10), new Punt(100, 150),
-		 * new Punt(300, 50))); tekening.voegToe(new LijnStuk(new Punt(100,
-		 * 200), new Punt(200, 300)));
-		 */
-
-		// GameMainWindow window = new GameMainWindow("Pictionary", tekening);
-		// window.setVisible(true);
-		// window.teken();
+		//PictionaryUi ui = new PictionaryUi(speler);
+		//ui.start();
 		Class<? extends Spel> spel = getSpel();
 		spel.getConstructor(Speler.class).newInstance(speler).start();
 	}
