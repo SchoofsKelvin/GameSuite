@@ -36,7 +36,7 @@ public class PictionaryUi implements Drawable {
 					tekening.voegToe(getVormByDialog());
 					break;
 				case 2:
-					toonTekening();
+					toonTekening(tekening.getNaam(),tekening);
 					break;
 				default:
 					JOptionPane.showMessageDialog(null, "Geen juiste optie!");
@@ -113,8 +113,11 @@ public class PictionaryUi implements Drawable {
 				JOptionPane.ERROR_MESSAGE);
 	}
 
-	private void toonTekening() {
-		JOptionPane.showMessageDialog(null, tekening.toString());
+	public void toonTekening(String naam, Tekening tekening) {
+		//JOptionPane.showMessageDialog(null, tekening.toString());
+		GameMainWindow window = new GameMainWindow("Pictionary", tekening);
+		window.setVisible(true);
+		window.teken();
 	}
 
 	@SuppressWarnings("unused")
