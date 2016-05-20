@@ -30,7 +30,11 @@ public class HintWoord {
 	
 	@Override
 	public String toString() {
-		return woord;
+		StringBuilder res = new StringBuilder(letters.length);
+		for (HintLetter letter : letters) {
+			res.append(letter.toChar());
+		}
+		return res.toString();
 	}
 	
 	public String getWoord() {

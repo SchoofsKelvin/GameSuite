@@ -23,7 +23,7 @@ public class HintLetter {
 	}
 	
 	public char toChar() {
-		return letter;
+		return geraden ? letter : '_';
 	}
 	
 	public char getLetter() {
