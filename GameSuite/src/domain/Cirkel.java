@@ -57,6 +57,6 @@ public class Cirkel extends Vorm {
     @Override
     public void draw(Graphics paramGraphics) {
     	Graphics2D g2 = (Graphics2D)paramGraphics;
-    	g2.drawOval(middelpunt.getX(), middelpunt.getY(), radius, radius);
+    	g2.drawOval(middelpunt.getX()-radius, middelpunt.getY()-radius, radius*2, radius*2);
     }
 }
