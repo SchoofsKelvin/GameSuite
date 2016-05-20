@@ -12,15 +12,15 @@ import domain.Speler;
 import domain.Tekening;
 import domain.Vorm;
 
-public class PictionaryUi implements Drawable {
+public class PictionaryUi extends Spel implements Drawable {
 
-	private Speler		speler;
 	private Tekening	tekening;
 
 	public PictionaryUi(Speler speler) {
-		this.speler = speler;
+		super(speler);
 	}
 
+	@Override
 	public void start() {
 		tekening = getTekeningByDialog();
 
@@ -129,6 +129,11 @@ public class PictionaryUi implements Drawable {
 	public void draw(Graphics paramGraphics) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public static String getSpelNaam() {
+		return "Pictionary";
 	}
 
 }
