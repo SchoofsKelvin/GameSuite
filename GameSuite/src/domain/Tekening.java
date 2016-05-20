@@ -7,7 +7,7 @@ import java.util.List;
 
 import ui.Drawable;
 
-public class Tekening implements Drawable {
+public class Tekening{
 
 	private final static int	MIN_X	= 0;
 	private final static int	MIN_Y	= 0;
@@ -33,7 +33,7 @@ public class Tekening implements Drawable {
 				vorm.getOmhullende().getMaximumX() > MAX_X ||
 				vorm.getOmhullende().getMinimumY() < MIN_Y ||
 				vorm.getOmhullende().getMaximumY() > MAX_Y)
-			throw new DomainException();
+			throw new DomainException("vorm moet binnen bepaalde grenzen liggen");
 		this.vormen.add(vorm);
 	}
 
@@ -65,10 +65,8 @@ public class Tekening implements Drawable {
 	}
 
 	public List<Vorm> getVormen() {
-		ArrayList<Vorm> copy = new ArrayList<>();
-		Collections.copy(copy, vormen);
-		return copy;
-	}
+		return new ArrayList<>(this.vormen);
+			}
 
 	@Override
 	public String toString() {
@@ -80,8 +78,4 @@ public class Tekening implements Drawable {
 		return out;
 	}
 
-	@Override
-	public void draw(Graphics paramGraphics) {
-
-	}
 }

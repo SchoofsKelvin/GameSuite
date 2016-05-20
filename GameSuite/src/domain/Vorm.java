@@ -11,7 +11,6 @@ public abstract class Vorm implements Drawable {
 	@Override
 	public abstract String toString();
 
-    @Override
+	@Override
     public abstract void draw(Graphics g);
-
 }

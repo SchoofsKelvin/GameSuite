@@ -77,7 +77,6 @@ public class Rechthoek extends Vorm {
 
 	@Override
 	public void draw(Graphics paramGraphics) {
-        System.out.println("teken");
         Graphics2D g2 = (Graphics2D) paramGraphics;
         g2.drawRect(linkerBovenhoek.getX(), linkerBovenhoek.getY(), breedte, hoogte);
 	}
