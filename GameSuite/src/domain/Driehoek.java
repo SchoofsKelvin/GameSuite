@@ -3,8 +3,6 @@ package domain;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
-import ui.Drawable;
-
 public class Driehoek extends Vorm {
 
 	private Punt hoekpunt1, hoekpunt2, hoekpunt3;

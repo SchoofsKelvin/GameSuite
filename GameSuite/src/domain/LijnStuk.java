@@ -3,16 +3,14 @@ package domain;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
-import ui.Drawable;
-
 public class LijnStuk extends Vorm {
 
 	private Punt	startPunt;
 	private Punt	eindPunt;
 
 	public LijnStuk(Punt startPunt, Punt eindPunt) {
-		setEindPunt(eindPunt);
 		setStartPunt(startPunt);
+		setEindPunt(eindPunt);
 	}
 
 	public Punt getStartPunt() {

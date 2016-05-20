@@ -1,9 +1,9 @@
 package ui;
 
+import javax.swing.JFrame;
+
 import domain.DomainException;
 import domain.Tekening;
-
-import javax.swing.*;
 
 public class GameMainWindow extends JFrame {
 	

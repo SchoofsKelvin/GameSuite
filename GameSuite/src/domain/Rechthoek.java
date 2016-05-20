@@ -1,8 +1,7 @@
 package domain;
 
-import java.awt.*;
-
-import ui.Drawable;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 public class Rechthoek extends Vorm {
 

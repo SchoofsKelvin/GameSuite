@@ -1,11 +1,7 @@
 package domain;
 
-import java.awt.Graphics;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-
-import ui.Drawable;
 
 public class Tekening{
 

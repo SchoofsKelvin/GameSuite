@@ -3,8 +3,6 @@ package domain;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
-import ui.Drawable;
-
 public class Cirkel extends Vorm {
 
 	private Punt	middelpunt;

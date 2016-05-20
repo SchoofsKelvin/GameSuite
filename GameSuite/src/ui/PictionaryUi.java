@@ -49,7 +49,7 @@ public class PictionaryUi extends Spel implements Drawable {
 	private Vorm getVormByDialog() {
 		while (true) {
 			try {
-				Object[] shapes = { "Cirkel", "Rechthoek" };
+				Object[] shapes = { "Cirkel", "Rechthoek", "Lijnstuk" };
 				String vormKeuze = (String) JOptionPane.showInputDialog(null,
 						"Wat wilt u tekenen", "input",
 						JOptionPane.INFORMATION_MESSAGE, null, shapes, null);
@@ -59,14 +59,17 @@ public class PictionaryUi extends Spel implements Drawable {
 
 				Punt punt = getPuntByDialog("punt");
 
-				switch (vormKeuze.toLowerCase()) {
-					case "rechthoek":
+				switch (vormKeuze) {
+					case "Rechthoek":
 						int breedte = getIntegerUsingDialog("Breedte");
 						int hoogte = getIntegerUsingDialog("Hoogte");
 						return new Rechthoek(punt, breedte, hoogte);
-					case "cirkel":
+					case "Cirkel":
 						int radius = getIntegerUsingDialog("Radius");
 						return new Cirkel(punt, radius);
+					case "Lijnstuk":
+						Punt eindPunt = getPuntByDialog("eindpunt");
+						return new LijnStuk(punt, eindPunt);
 				}
 			} catch (Exception e) {
 				toonError(e.getClass() + ": " + e.getMessage());
@@ -118,14 +121,6 @@ public class PictionaryUi extends Spel implements Drawable {
 		GameMainWindow window = new GameMainWindow("Pictionary", tekening);
 		window.setVisible(true);
 		window.teken();
-	}
-
-	@SuppressWarnings("unused")
-	private LijnStuk maakLijnStuk() {
-		Punt startPunt = getPuntByDialog("startpunt");
-		Punt eindPunt = getPuntByDialog("eindpunt");
-		LijnStuk lijnStuk = new LijnStuk(startPunt, eindPunt);
-		return lijnStuk;
 	}
 
 	@Override

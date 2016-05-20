@@ -1,6 +1,7 @@
 package ui;
 
-import java.awt.*;
+import java.awt.Canvas;
+import java.awt.Graphics;
 
 import domain.DomainException;
 import domain.Tekening;

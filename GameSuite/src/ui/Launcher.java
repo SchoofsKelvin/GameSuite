@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import domain.Cirkel;
 import domain.Punt;
 import domain.Rechthoek;
 import domain.Speler;
@@ -14,6 +15,7 @@ public class Launcher {
 
 	public static void main(String[] args) throws Exception {
 		String naam = JOptionPane.showInputDialog("Welkom! \nHoe heet je?");
+		
 		if (naam == null) {
 			System.exit(0);
 		}
@@ -28,6 +30,9 @@ public class Launcher {
 				Rechthoek r = (Rechthoek) list.get(i);
 				tekening.voegToe(new Rechthoek(new Punt(r.getLinkerBovenhoek().getX(), r.getLinkerBovenhoek().getY()),
 						r.getBreedte(), r.getHoogte()));
+			}else if(list.get(i) instanceof Cirkel){
+				Cirkel c = (Cirkel) list.get(i);
+				tekening.voegToe(new Cirkel(new Punt(c.getMiddelpunt().getX(), c.getMiddelpunt().getY()), c.getRadius()));
 			}
 		}
 		ui.toonTekening(speler.getNaam(), tekening);
