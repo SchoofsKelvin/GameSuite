@@ -28,7 +28,9 @@ public class TekenVenster extends Canvas {
 	@Override
 	public void paint(Graphics graphics) {
 		for(Vorm vorm : tekening.getVormen()) {
-			vorm.draw(graphics);
+            if (vorm.isZichtbaar()) {
+                vorm.draw(graphics);
+            }
 		}
 	}
 

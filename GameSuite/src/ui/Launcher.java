@@ -20,6 +20,7 @@ public class Launcher {
 			System.exit(0);
 		}
 		Speler speler = new Speler(naam);
+<<<<<<< HEAD
 		PictionaryUi ui = new PictionaryUi(speler);
 		ui.start();
 		Tekening tekening = new Tekening("Test");
@@ -47,6 +48,10 @@ public class Launcher {
 		// GameMainWindow window = new GameMainWindow("Pictionary", tekening);
 		// window.setVisible(true);
 		// window.teken();
+=======
+		//PictionaryUi ui = new PictionaryUi(speler);
+		//ui.start();
+>>>>>>> branch 'master' of https://github.com/SchoofsKelvin/GameSuite.git
 		Class<? extends Spel> spel = getSpel();
 		spel.getConstructor(Speler.class).newInstance(speler).start();
 	}

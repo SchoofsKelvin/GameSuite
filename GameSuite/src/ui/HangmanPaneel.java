@@ -1,5 +1,7 @@
 package ui;
 
+import domain.HangMan;
+
 import java.awt.BorderLayout;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
