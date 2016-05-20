@@ -1,6 +1,7 @@
 package domain;
 
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 import ui.Drawable;
 
@@ -60,7 +61,9 @@ public class Driehoek extends Vorm {
 
 	@Override
 	public void draw(Graphics paramGraphics) {
-		// TODO Auto-generated method stub
-
+		Graphics2D g2 = (Graphics2D)paramGraphics;
+		int [] x = {hoekpunt1.getX(),hoekpunt2.getX(),hoekpunt3.getX()};
+		int [] y = {hoekpunt1.getY(),hoekpunt2.getY(),hoekpunt3.getY()};
+		g2.drawPolygon(x, y, 3);
 	}
 }

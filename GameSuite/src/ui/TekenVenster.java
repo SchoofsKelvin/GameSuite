@@ -20,12 +20,13 @@ public class TekenVenster extends Canvas {
 	}
 
 	public void teken() {
+		this.validate();
 		this.repaint();
     }
 
 	@Override
 	public void paint(Graphics graphics) {
-        for(Vorm vorm : tekening.getVormen()) {
+		for(Vorm vorm : tekening.getVormen()) {
 			vorm.draw(graphics);
 		}
 	}

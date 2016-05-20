@@ -1,6 +1,7 @@
 package domain;
 
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 import ui.Drawable;
 
@@ -57,6 +58,7 @@ public class Cirkel extends Vorm {
 
     @Override
     public void draw(Graphics paramGraphics) {
-
+    	Graphics2D g2 = (Graphics2D)paramGraphics;
+    	g2.drawOval(middelpunt.getX(), middelpunt.getY(), radius, radius);
     }
 }

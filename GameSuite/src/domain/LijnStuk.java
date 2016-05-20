@@ -1,6 +1,7 @@
 package domain;
 
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 import ui.Drawable;
 
@@ -59,8 +60,8 @@ public class LijnStuk extends Vorm {
 
 	@Override
 	public void draw(Graphics paramGraphics) {
-		// TODO Auto-generated method stub
-
+		Graphics2D g2 = (Graphics2D) paramGraphics;
+		g2.drawLine(this.getStartPunt().getX(), this.getStartPunt().getY(), this.getEindPunt().getX(), this.getEindPunt().getY());
 	}
 
 }
