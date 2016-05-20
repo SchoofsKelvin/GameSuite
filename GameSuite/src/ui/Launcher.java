@@ -9,8 +9,6 @@ public class Launcher {
 
 	public static void main(String[] args) throws Exception {
 		String naam = JOptionPane.showInputDialog("Welkom! \nHoe heet je?");
-		
-		WoordenLezer lezer = new WoordenLezer("hangman.txt");
 
 		if (naam == null) {
 			System.exit(0);
